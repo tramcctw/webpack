@@ -1,0 +1,23 @@
+# webpack其他配置
+
+- context
+    - 配置路径，入口文件所在目录,此时entry相对于的是context的目录 
+    - 同时也影响loaders
+- output内部配置
+    - library //将最终打包的文件，立即执行函数暴露给全局对象的一个属性
+    - libraryTarget：配合library去使用，暴露给谁默认为var，
+        - window
+        - this
+        - global
+        - 等
+- target
+    - 默认的值 'web'//解析环境是web环境，此时引入node模块则去node_modules里面去找
+    - 'node'  // 解析环境是node环境，导入node内置模块，可以导入
+- module.parse正则表达式，打包过程中，若匹配到了符合该正则的文件，忽略解析该文件，直接将该文件内容放入模块列表中，一般用于打包好的文件，不依赖其他任何模块
+- resolve
+    - modules:['node_modules']// 默认值，，webpack会按照node的方式去查找，可以自己配置
+    - extentions:['.js','.json']// 默认值，webpack会补全后缀
+    - alias:{'@':path.resolve(__dirname,'src')} //配置导入别名
+- externals:{ jquery:"$",lodash:"_"} //配置后，在打包的文件中不再有这两个模块中的代码，而是直接导出这两个模块但是需要在最终运行的html文件中，做处理，导入模块的cdn，此时有全局的$,和 _
+- stats 控制控制台的输出
+    - {colors:false}控制颜色

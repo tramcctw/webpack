@@ -1,0 +1,50 @@
+@import "test.css";
+div {
+  width: 10px;
+  height: 20px;
+}
+.menu {
+  color: #111;
+  position: absolute;
+  border: 1px solid black;
+}
+#header {
+  color: black;
+}
+#header::before {
+  display: block;
+}
+#header > .logo {
+  width: 100px;
+}
+#header > .logo::before {
+  display: inline-block;
+}
+#header > .logo.li {
+  list-style: none;
+}
+#header > .logo .asd {
+  color: red;
+}
+#header .abc {
+  height: 100px;
+}
+#header {
+  width: 20px;
+}
+.s3 {
+  color: #992900;
+}
+.header {
+  height: 30px;
+}
+/*
+会出现在css中的注释
+*/
+.abc {
+  color: red;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

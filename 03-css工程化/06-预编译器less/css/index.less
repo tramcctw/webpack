@@ -1,0 +1,89 @@
+// 定义变量
+@width: 10px;
+@height: @width + 10px;
+
+div {
+  width: @width;
+  height: @height;
+}
+
+// 混合
+// .bordered {
+//   border: 1px solid black;
+// }
+
+.bordered(@type) {
+  //此时不会显示在编译结果中
+  //此时可以传值
+  position: @type;
+  border: 1px solid black;
+}
+
+.menu {
+  color: #111;
+  // 将.bordered的代码混合到这里
+  .bordered(absolute);
+}
+
+// 嵌套
+#header {
+  color: black;
+
+  &::before {
+    //&代表的是父级元素
+    display: block;
+  }
+
+  > .logo {
+    width: 100px;
+    &::before {
+      display: inline-block;
+    }
+    &.li {
+      list-style: none;
+    }
+    .asd {
+      color: red;
+    }
+  }
+  .abc {
+    height: 100px;
+  }
+}
+
+//运算
+#header {
+  width: @width*2;
+}
+
+//函数，less内置的一些函数
+@primary: #f40;
+
+.s3 {
+  color: darken(@primary, 20%);
+  //加深颜色函数
+}
+
+// 作用域
+.header {
+  @height: 30px;
+  //只能在内部使用，外部无法使用
+  height: @height;
+}
+
+//注释
+// 不会出现在编译结果中的注释
+/*
+会出现在css中的注释
+*/
+
+//导入
+@import "color"; //默认后缀为less
+@import "xxx"; // 后面的覆盖前面的less
+
+@import "test.css";
+//编译后原样导入
+.abc {
+  color: @danger;
+  .center(fixed);
+}

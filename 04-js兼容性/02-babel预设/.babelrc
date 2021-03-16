@@ -1,0 +1,13 @@
+// {
+//     "presets": ["@babel/preset-env"]     //该预设集成多个插件，帮助解决兼容性，但不解决新增的api的兼容性，例如Promise
+// }
+
+{
+    "presets": [
+        ["@babel/preset-env",{ // 该预设添加配置
+            "useBuiltIns":"usage",  // 对新的api进行处理默认为false，从而会导入一些包含该api的核心库
+            //对新的api进行转换,仅仅是引用了库core.js,里面包含了所有的新的api实现,还有一些新的语法则需要安装regenerator-runtime，例如async
+            "corejs":3              //使用corejs的3版本
+        }]
+    ]
+}

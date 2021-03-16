@@ -1,0 +1,26 @@
+// {
+//     "presets": [
+//         ["@babel/preset-env",{ 
+//             "useBuiltIns":"usage",
+//             "corejs":3          
+//         }]
+//     ],
+//     "plugins": ["@babel/plugin-proposal-class-properties"]
+// }
+
+{
+    "presets": [
+        ["@babel/preset-env",{ 
+            "useBuiltIns":"usage",
+            "corejs":3          
+        }]
+    ],
+    "plugins": [
+        ["@babel/plugin-proposal-class-properties",{        //给该插件添加配置
+            "loose":true  //转换不要进行严格的检查，使用宽松的语法转换
+        }],
+        "@babel/proposal-optional-chaining",  //识别语法obj?.foo?.bar?.baz 
+        "babel-plugin-transform-remove-console",     // 去除代码中的console
+        "@babel/plugin-transform-runtime"
+    ]
+}

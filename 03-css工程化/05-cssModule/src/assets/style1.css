@@ -1,0 +1,20 @@
+/* 处理banner的样式 */
+
+/* 表示全局样式，不需要进行转换 */
+:global(.main){  
+    background: lightblue;
+}
+
+.c1 {
+    color: red
+}
+
+.c2 {
+    color: green
+}
+
+
+
+h1{
+    font-weight: bold;
+}

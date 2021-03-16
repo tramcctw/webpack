@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true, //代码是否在浏览器环境运行
+    "es6": true // 启动es6的全局api
+  },
+  "extends": "eslint:recommended",
+  "globals": {
+    //配置一些额外的全局变量
+    "Atomics": "readonly",
+    "global": "readonly",
+    "asd": "readonly",
+    "ddd": "writable"
+  },
+  "parserOptions": {
+    // 指定eslint对哪些语法的支持
+    "ecmaVersion": 2018, // 支持的版本
+    "sourceType": "module" // 表示的是传统脚本，还是模块化脚本
+  },
+  "rules": {
+    // "eqeqeq": "error"
+  } //继承自一个推荐的规则  规则集
+}
